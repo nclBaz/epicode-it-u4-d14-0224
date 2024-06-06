@@ -4,7 +4,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import riccardogulin.dao.AnimalsDAO;
-import riccardogulin.entities.Animal;
 import riccardogulin.entities.Cat;
 import riccardogulin.entities.Dog;
 
@@ -16,12 +15,10 @@ public class Application {
 		AnimalsDAO ad = new AnimalsDAO(em);
 
 		Cat tom = new Cat("Tom", 2, 20);
-		Dog fido = new Dog("Fido", 5, 30);
+		Dog fido = new Dog("Rex", 5, 30);
+		ad.save(tom);
+		ad.save(fido);
 
-/*		ad.save(tom);
-		ad.save(fido);*/
-
-		Animal a = ad.findById(203);
-		System.out.println(a);
+		ad.findAllDogs().forEach(System.out::println);
 	}
 }

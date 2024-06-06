@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "animals")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_animale") // <-- serve per rinominare la colonna discriminante (DTYPE)
 /*
 SINGLE TABLE è la strategia che ci genera un'unica tabella contenente tutti gli animali (Cat e Dog). La comodità è quella di avere una singola tabella,
