@@ -21,7 +21,7 @@ public class Application {
 /*		ad.save(tom);
 		ad.save(fido);*/
 
-		Animal a = ad.findById(152);
+		Animal a = ad.findById(203);
 		System.out.println(a);
 	}
 }

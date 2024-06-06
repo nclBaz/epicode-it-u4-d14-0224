@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "animals")
-@Inheritance(strategy = InheritanceType.JOINED)
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @DiscriminatorColumn(name = "tipo_animale") // <-- serve per rinominare la colonna discriminante (DTYPE)
 /*
 SINGLE TABLE è la strategia che ci genera un'unica tabella contenente tutti gli animali (Cat e Dog). La comodità è quella di avere una singola tabella,
@@ -15,6 +15,10 @@ JOINED è la strategia che genera tabelle per la classe padre e per le figlie, n
 comuni, due per gli attributi specifici di Cat e Dog. Questo rende la struttura del db più 'pulita' e controllata (nel senso che posso inserire dei vincoli
 di non-nullness sulle colonne), di contro però le operazioni di lettura dei dati potrebbero richiedere dei JOIN (i quali hanno un costo). Da preferire
 rispetto a prima quando le classi figlie hanno tanti attributi diversi tra di loro e pochi in comune.
+
+TABLE PER CLASS, detta anche table per CONCRETE class, è la strategia che crea una tabella per ogni classe concreta. Se la classe padre è astratta non avrà
+una tabella di riferimento e viceversa se dovesse essere concreta anch'essa avrà una tabella. Questa strategia può portare ad avere una buona pulizia della
+struttura delle tabelle però ha degli svantaggi nelle performance delle queries polimorfiche
 
 * */
 public abstract class Animal {
