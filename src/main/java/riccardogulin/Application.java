@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import riccardogulin.dao.AnimalsDAO;
+import riccardogulin.entities.Animal;
 import riccardogulin.entities.Cat;
 import riccardogulin.entities.Dog;
 
@@ -20,7 +21,7 @@ public class Application {
 /*		ad.save(tom);
 		ad.save(fido);*/
 
-		Cat a = ad.findCatById(102);
-		System.out.println(a.getMaxJumpHeight());
+		Animal a = ad.findById(152);
+		System.out.println(a);
 	}
 }
