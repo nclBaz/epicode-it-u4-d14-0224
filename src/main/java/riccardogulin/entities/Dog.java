@@ -31,6 +31,7 @@ public class Dog extends Animal {
 				", id=" + id +
 				", name='" + name + '\'' +
 				", age=" + age +
+				", owner=" + owner +
 				"} ";
 	}
 }

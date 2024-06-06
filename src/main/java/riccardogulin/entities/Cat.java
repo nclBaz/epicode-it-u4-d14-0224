@@ -31,6 +31,7 @@ public class Cat extends Animal {
 				", id=" + id +
 				", name='" + name + '\'' +
 				", age=" + age +
+				", owner=" + owner +
 				"} ";
 	}
 }

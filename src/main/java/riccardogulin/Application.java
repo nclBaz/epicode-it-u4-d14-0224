@@ -14,11 +14,16 @@ public class Application {
 		EntityManager em = emf.createEntityManager();
 		AnimalsDAO ad = new AnimalsDAO(em);
 
-		Cat tom = new Cat("Tom", 2, 20);
-		Dog fido = new Dog("Rex", 5, 30);
-		ad.save(tom);
-		ad.save(fido);
+		Cat tom = new Cat("Robert", 2, 20);
+		Dog fido = new Dog("Rintintin", 5, 30);
+/*		ad.save(tom);
+		ad.save(fido);*/
 
-		ad.findAllDogs().forEach(System.out::println);
+		// ad.findAllAnimalsNames().forEach(System.out::println);
+
+
+		// ad.findAnimalsByNameAndDelete("Tom");
+
+		ad.findByOwnerName("Giovanni").forEach(System.out::println);
 	}
 }

@@ -21,12 +21,19 @@ una tabella di riferimento e viceversa se dovesse essere concreta anch'essa avr�
 struttura delle tabelle però ha degli svantaggi nelle performance delle queries polimorfiche
 
 * */
+@NamedQuery(name = "findByName", query = "SELECT a FROM Animal a WHERE a.name = :name")
+// Nelle query JPQL posso segnare dei dati parametrici con i due punti :
+// Le named query sono query associate ad un'entità alle quali associo un nome che poi potrò richiamare quante volte voglio
 public abstract class Animal {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected long id;
 	protected String name;
 	protected int age;
+
+	@ManyToOne
+	@JoinColumn(name = "owner_id")
+	protected Owner owner;
 
 	public Animal() {
 	}
